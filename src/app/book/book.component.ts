@@ -18,7 +18,7 @@ export class BookComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-    this.data.notifyToDisplay.unsubscribe();
+    this.data.notifyRemove.unsubscribe();
     this.sections = null;
   }
 
