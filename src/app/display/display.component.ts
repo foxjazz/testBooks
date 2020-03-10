@@ -14,5 +14,7 @@ sections: Section[];
   ngOnInit() {
     this.sections = this.dd.sections;
   }
-
+  toBook() {
+    this.dd.notifyToDisplay.next(false);
+  }
 }

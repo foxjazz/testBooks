@@ -1,3 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-book *ngIf="!toDisplay"></app-book>
-<app-display *ngIf="toDisplay"></app-display>
+<div>
+  <app-book *ngIf="toBook"></app-book>
+  <app-display *ngIf="toDisplay"></app-display>
+</div>
