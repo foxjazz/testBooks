@@ -1,0 +1,15 @@
+<div>{{title}}</div>
+
+<div>
+  <input [(ngModel)]="title" placeholder="$">
+  <button (click)="add()">Add Section</button>
+</div>
+
+<div *ngFor="let sec of sections">
+  <app-section [section]="sec"></app-section>
+</div>
+
+
+<div>
+  <button (click)="toDisplay()"></button>
+</div>
