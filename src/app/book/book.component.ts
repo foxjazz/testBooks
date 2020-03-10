@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Section} from '../Section';
 import {DataService} from '../data.service';
 
@@ -7,18 +7,23 @@ import {DataService} from '../data.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
-export class BookComponent implements OnInit {
+export class BookComponent implements OnInit, OnDestroy {
 
   sections: Section[];
   title: string;
   private id: number;
   constructor(private data: DataService) {
-    this.sections = this.data.sections;
+
     this.id = 0;
 
   }
+  ngOnDestroy(): void {
+    this.data.notifyToDisplay.unsubscribe();
+    this.sections = null;
+  }
 
   ngOnInit() {
+    this.sections = this.data.sections;
     this.data.notifyRemove.subscribe(sec => {
       this.remove(sec);
     });
@@ -28,6 +33,8 @@ export class BookComponent implements OnInit {
   }
   remove(sec: Section){
     let ll = 0;
+    if (this.sections == null)
+      return;
     for (const seci of this.sections) {
       if (seci.id === sec.id) {
         this.sections.splice(ll, 1);
