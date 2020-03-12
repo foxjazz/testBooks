@@ -8,11 +8,13 @@ import {Section} from '../Section';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-sections: Section[];
+  sections: Section[];
+
   constructor(private dd: DataService) { }
 
   ngOnInit() {
     this.sections = this.dd.sections;
+
   }
   toBook() {
     this.dd.notifyToDisplay.next(false);

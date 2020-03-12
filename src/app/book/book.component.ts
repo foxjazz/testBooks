@@ -12,19 +12,20 @@ export class BookComponent implements OnInit, OnDestroy {
   sections: Section[];
   title: string;
   private id: number;
+  observerRemove;
   constructor(private data: DataService) {
 
     this.id = 0;
 
   }
   ngOnDestroy(): void {
-    this.data.notifyRemove.unsubscribe();
+    this.observerRemove.unsubscribe();
     this.sections = null;
   }
 
   ngOnInit() {
     this.sections = this.data.sections;
-    this.data.notifyRemove.subscribe(sec => {
+    this.observerRemove = this.data.notifyRemove.subscribe(sec => {
       this.remove(sec);
     });
   }

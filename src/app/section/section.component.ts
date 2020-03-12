@@ -7,11 +7,11 @@ import {DataService} from '../data.service';
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
-
+  tribbleView: boolean;
   constructor(private data: DataService) { }
   @Input() section;
   ngOnInit() {
-
+    this.tribbleView = false;
   }
   remove() {
     this.data.notifyRemove.next(this.section);

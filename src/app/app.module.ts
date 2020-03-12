@@ -8,6 +8,7 @@ import { SectionComponent } from './section/section.component';
 import {DataService} from './data.service';
 import {FormsModule} from '@angular/forms';
 import { DisplayComponent } from './display/display.component';
+import { HoverDirective } from './hover.directive';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DisplayComponent } from './display/display.component';
     AppComponent,
     BookComponent,
     SectionComponent,
-    DisplayComponent
+    DisplayComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,

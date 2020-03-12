@@ -1,2 +1,8 @@
 <div> title: {{section.title}} id: {{section.id}}</div>
 <div (click)="remove()">remove</div>
+
+<div appHover>
+  Hover over this here.
+</div>
+<div *ngIf="tribbleView"> tribbles </div>
+<div *ngIf="!tribbleView"> Dead tribbles </div>
